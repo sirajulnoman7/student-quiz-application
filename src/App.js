@@ -7,6 +7,7 @@ import Academic from './Components/Academic/Academic';
 import Course from './Components/Course/Course';
 import Blogs from './Components/Blog/Blogs';
 import Quiz from './Components/Quiz/Quiz';
+import StartQuiz from './Components/StartQuiz/StartQuiz';
 const router = createBrowserRouter([
   {
     path: '/', element: <Header></Header>, children: [
@@ -24,11 +25,23 @@ const router = createBrowserRouter([
         path: '/blog', element: <Blogs></Blogs>
       },
       {
-        path: '/quiz', element: <Quiz></Quiz>
+        path: '/quiz',
+        loader: async () => {
+          return fetch('quiz.json')
+        },
+        element: <Quiz></Quiz>
+      },
+      {
+        path: '/quiz/:quizNumber',
+        loader: async ({ params }) => { return fetch(`https://openapi.programming-hero.com/api/quiz/${params.quizNumber}`) },
+        element: <StartQuiz></StartQuiz>
       },
     ]
-  }
+
+  },
+
 ]);
+
 function App() {
   return (
     <div className="App">

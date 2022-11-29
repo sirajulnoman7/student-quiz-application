@@ -1,15 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-
+import React, { createContext, useState } from 'react';
+import { Link, useLoaderData } from 'react-router-dom';
+import Quizheader from '../Quizheader/Quizheader';
+import './Quizs.css'
+// export const quizContext = createContext('context')
 const Quiz = () => {
+    const quiz = useLoaderData([]);
+    // const [quizs, setQuiz] = useState(quiz)
+    // const [quiz1, setQuiz] = useState(quiz)
+    // if (!quiz) {
+    //     setQuiz(quiz.number)
+    // }
+    // console.log(quiz1)
+
     return (
-        <div >
+        // <quizContext.provider value={[quiz, setQuiz]}>
 
-            <Link className='mt-20 flex justify-center ' to='start'>
-                <button className='mt-30 flex justify-center px-3 py-2 rounded bg-orange-400 hover:bg-orange-800 cursor-pointer '>Quiz Start</button>
-            </Link>
+        <section className='bg-gradient-to-r from-yellow-500 via-purple-500 to-pink-500 m-0'>
+            <div className=''>
+                <Quizheader quiz={quiz}></Quizheader>
 
-        </div>
+
+            </div>
+        </section>
+
     );
 };
 

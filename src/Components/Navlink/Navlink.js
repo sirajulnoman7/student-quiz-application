@@ -9,7 +9,7 @@ const Navlink = () => {
 
 
     return (
-        <div>
+        <div className='bg-cyan-400'>
 
 
 
@@ -23,7 +23,7 @@ const Navlink = () => {
                 <div>
                     <img className='w-50  sm:block hidden ' src={logo} alt="" />
                 </div>
-                <ul className={`md:flex w-full justify-center gap-6 text-lg font-semibold py-2 absolute duration-700 ease-in md:static ${open ? 'top-6' : 'top-[-500px]'} `}>
+                <ul className={`md:flex  bg-cyan-400 w-full justify-center gap-6 text-lg font-semibold py-2 absolute duration-700 ease-in md:static ${open ? 'top-6' : 'top-[-500px]'} `}>
                     <li className='hover:bg-gradient-to-r from-yellow-500 via-purple-500 to-pink-500 px-2 rounded'>
                         <NavLink to='/'
                             className={({ isActive }) =>
